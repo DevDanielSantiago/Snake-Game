@@ -1,0 +1,45 @@
+body {
+    height: 95vh;
+    width: 95;
+}
+
+.color-green {
+    color: #148F31;
+}
+
+.color-red {
+    color: #bf0603;
+}
+
+.color-blue {
+    color: #003566;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.font-bold {
+    font-weight: bold;
+}

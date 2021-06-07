@@ -9,6 +9,17 @@
         <script defer src="script.js"></script>
     </head>
     <body>
-        <canvas id="snake" width="512" height="512"></canvas>
+        <main>
+            <article class="display-flex align-center flex-column">
+                <h1 class="color-green">Snake Game</h1>
+                <div class="flex-row margin-bottom-10">
+                    Status: <p id="status" class="display-inline font-bold">RODANDO</p> |
+                    Frutas: <p id="frutas" class="display-inline font-bold color-blue">0</p>
+                    <input id="button" type="button" value="reiniciar" onclick="reiniciarJogo()"></input>
+                </div>
+
+                <canvas id="snake" width="512" height="512"></canvas>
+            </article>
+        </main>
     </body>
 </html>
