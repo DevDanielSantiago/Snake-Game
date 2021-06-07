@@ -5,6 +5,7 @@ let box = 32;
 let snake = [];
 let snakeX;
 let snakeY;
+let rodandoJogo;
 
 snake[0] = { 
     x: 8 * box, 
@@ -62,9 +63,14 @@ function fimDeJogo() {
     for(i = 1; i < snake.length; i++) {
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             clearInterval(jogo);
-            alert("Game Over!");
+            alterarStatus();
         }
     }
+}
+
+function alterarStatus() {
+    document.getElementById("status").innerHTML = "GAME OVER";
+    document.getElementById("status").style.color = "red";
 }
 
 function guardarPosicaoXY() {
@@ -88,7 +94,8 @@ function comerFruta() {
     }
 }
 
-function iniciarJogo() {
+function executandoJogo() {
+    rodandoJogo = true;
     criarBG();
     criarCobrinha();
     criarComida();
@@ -103,4 +110,4 @@ function iniciarJogo() {
     criarCabeca();
 }
 
-let jogo = setInterval(iniciarJogo, 100);
+let jogo = setInterval(executandoJogo, 100);
