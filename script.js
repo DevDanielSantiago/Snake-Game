@@ -20,5 +20,7 @@ function criarCobrinha() {
     }
 }
 
-criarBG();
-criarCobrinha();
+function iniciarJogo() {
+    criarBG();
+    criarCobrinha();
+}
