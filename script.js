@@ -1,11 +1,12 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
+let direction = "right";
 let box = 32;
 let snake = [];
 
-snake[0] = {
-    x: 8 * box,
-    y: 8 * box
+snake[0] = { 
+    x: 8 * box, 
+    y: 8 * box 
 }
 
 let food = {
@@ -13,7 +14,7 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box
 } 
 
-let direction = "right";
+document.addEventListener("keydown", update);
 
 function criarBG() {
     context.fillStyle = "lightgreen";
@@ -31,8 +32,6 @@ function criarComida() {
     context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
 }
-
-document.addEventListener("keydown", update);
 
 function update(event) {
     if(event.key === "ArrowLeft" && direction !== "right") direction = "left";
