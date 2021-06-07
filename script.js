@@ -30,6 +30,15 @@ function criarCobrinha() {
     }
 }
 
+function criarCabeca() {
+    let newHead = {
+        x: snakeX,
+        y: snakeY
+    }
+
+    snake.unshift(newHead);
+}
+
 function criarComida() {
     context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
@@ -91,13 +100,7 @@ function iniciarJogo() {
     atualizarPosicaoXY();
 
     comerFruta();
-    
-    let newHead = {
-        x: snakeX,
-        y: snakeY
-    }
-
-    snake.unshift(newHead);
+    criarCabeca();
 }
 
 let jogo = setInterval(iniciarJogo, 100);
