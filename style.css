@@ -7,6 +7,14 @@ body {
     color: #148F31;
 }
 
+.color-red {
+    color: #bf0603;
+}
+
+.color-blue {
+    color: #003566;
+}
+
 .display-flex {
     display: flex;
 }

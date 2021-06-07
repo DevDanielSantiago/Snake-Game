@@ -70,7 +70,7 @@ function fimDeJogo() {
 
 function alterarStatus() {
     document.getElementById("status").innerHTML = "GAME OVER";
-    document.getElementById("status").style.color = "red";
+    document.getElementById("status").classList.toggle("color-red")
 }
 
 function guardarPosicaoXY() {
@@ -89,9 +89,15 @@ function comerFruta() {
     if(snakeX != food.x || snakeY != food.y) {
         snake.pop();
     } else {
+        alterarContadorFrutas();
         food.x = Math.floor(Math.random() * 15 + 1) * box,
         food.y = Math.floor(Math.random() * 15 + 1) * box
     }
+}
+
+function alterarContadorFrutas() {
+    let frutas = document.getElementById("frutas");
+    frutas.innerHTML = parseInt(frutas.innerText) + 1;
 }
 
 function executandoJogo() {
