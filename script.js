@@ -22,6 +22,15 @@ function criarCobrinha() {
     }
 }
 
+document.addEventListener("keydown", update);
+
+function update(event) {
+    if(event.key === "ArrowLeft" && direction !== "right") direction = "left";
+    if(event.key === "ArrowUp" && direction !== "down") direction = "up";
+    if(event.key === "ArrowRight" && direction !== "left") direction = "right";
+    if(event.key === "ArrowDown" && direction !== "up") direction = "down";
+}
+
 function iniciarJogo() {
     criarBG();
     criarCobrinha();
