@@ -5,7 +5,8 @@ let box = 32;
 let snake = [];
 let snakeX;
 let snakeY;
-let rodandoJogo;
+const button = document.getElementById("button");
+alterarStatusDisableButton(true);
 
 snake[0] = { 
     x: 8 * box, 
@@ -64,8 +65,13 @@ function fimDeJogo() {
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             clearInterval(jogo);
             alterarStatus();
+            alterarStatusDisableButton(false);
         }
     }
+}
+
+function alterarStatusDisableButton(status) {
+    button.disabled = status;
 }
 
 function alterarStatus() {
@@ -100,8 +106,23 @@ function alterarContadorFrutas() {
     frutas.innerHTML = parseInt(frutas.innerText) + 1;
 }
 
+function reiniciarJogo() {
+    alterarStatusDisableButton(true);
+
+    jogo = setInterval(executandoJogo, 100);
+    document.getElementById("frutas").innerHTML = "0";
+    document.getElementById("status").innerHTML = "RODANDO";
+    document.getElementById("status").classList.toggle("color-red");
+    
+    direction = "right";
+    snake = [];
+    snake[0] = { 
+        x: 8 * box, 
+        y: 8 * box 
+    }
+}
+
 function executandoJogo() {
-    rodandoJogo = true;
     criarBG();
     criarCobrinha();
     criarComida();
