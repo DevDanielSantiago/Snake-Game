@@ -2,14 +2,16 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let direction = "right";
 let box = 32;
-var snake = [];
+let snake = [];
+let snakeX;
+let snakeY;
 
 snake[0] = { 
     x: 8 * box, 
     y: 8 * box 
 }
 
-var food = {
+let food = {
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 } 
@@ -56,6 +58,11 @@ function fimDeJogo() {
     }
 }
 
+function guardarPosicaoXY() {
+    snakeX = snake[0].x;
+    snakeY = snake[0].y;
+}
+
 function iniciarJogo() {
     criarBG();
     criarCobrinha();
@@ -64,8 +71,7 @@ function iniciarJogo() {
     atravessarParede();
     fimDeJogo();
     
-    let snakeX = snake[0].x;
-    let snakeY = snake[0].y;
+    guardarPosicaoXY();
 
     if (direction == "right") snakeX += box;
     if (direction == "left") snakeX -= box;
