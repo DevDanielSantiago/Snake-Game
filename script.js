@@ -63,6 +63,13 @@ function guardarPosicaoXY() {
     snakeY = snake[0].y;
 }
 
+function atualizarPosicaoXY() {
+    if (direction == "right") snakeX += box;
+    if (direction == "left") snakeX -= box;
+    if (direction == "up") snakeY -= box;
+    if (direction == "down") snakeY += box;
+}
+
 function iniciarJogo() {
     criarBG();
     criarCobrinha();
@@ -72,11 +79,7 @@ function iniciarJogo() {
     fimDeJogo();
     
     guardarPosicaoXY();
-
-    if (direction == "right") snakeX += box;
-    if (direction == "left") snakeX -= box;
-    if (direction == "up") snakeY -= box;
-    if (direction == "down") snakeY += box;
+    atualizarPosicaoXY();
 
     if(snakeX != food.x || snakeY != food.y) {
         snake.pop();
